@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/test_legendre_polynomials.dir/test_legendre_polynomials.cpp.o"
-  "CMakeFiles/test_legendre_polynomials.dir/test_legendre_polynomials.cpp.o.d"
   "test_legendre_polynomials"
   "test_legendre_polynomials.pdb"
 )

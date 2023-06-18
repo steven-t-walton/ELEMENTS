@@ -70,6 +70,10 @@ namespace elements {
         CArray <real_t> &lob_nodes_1D,
         const int &num);
 
+    void lobatto_dual_nodes_1D(
+        CArray <real_t> &lob_dual_nodes_1D,
+        const int &num);
+
     void lobatto_weights_1D(
         CArray <real_t> &lob_weights_1D,  // Labbatto weights
         const int &num);
@@ -971,10 +975,16 @@ class Hex8: public Element3D {
             int num_nodes_1d_;
             int num_nodes_;
 
+            int num_dual_nodes_1d_;
+            int num_dual_nodes_;
+
             CArray <real_t> HexN_Nodes_1d_;
             CArray <real_t> HexN_Nodes_;
 
-            // Vertices
+            CArray <real_t> HexN_Dual_Nodes_1d_;
+            CArray <real_t> HexN_Dual_Nodes_;
+            
+	    // Vertices
             int num_verts_1d_;
 	    int num_dual_verts_1d_;
 	    int num_dual_verts_;
@@ -984,8 +994,11 @@ class Hex8: public Element3D {
 
             CArray <real_t> HexN_Verts_1d_;
             CArray <real_t> HexN_Verts_;
+            CArray <real_t> HexN_Dual_Verts_1d_;
+            CArray <real_t> HexN_Dual_Verts_;
             CArray <size_t> Vert_Node_map_;
 	    CArray <size_t> Dual_Vert_Node_map_;
+	    CArray <size_t> Ref_Dual_Vert_Node_map_;
             
             int order_;
 
@@ -997,22 +1010,30 @@ class Hex8: public Element3D {
             int num_verts();
 	    int num_dual_verts();
             int num_nodes();
+            int num_dual_nodes();
             int num_basis();
 	    int num_dual_basis();
             int node_rid(int i, int j, int k) const;
+            int dual_node_rid(int i, int j, int k) const;
             int vert_rid(int i, int j, int k) const;
             int dual_vert_rid(int i, int j, int k) const;
             
 	    // Return the noda coordinates in reference space
             real_t &node_coords(int node_rlid, int dim);
+            real_t &dual_node_coords(int node_rlid, int dim);
 
 
             int vert_node_map(int vert_rid) const;
             
             int dual_vert_node_map(int vert_rid) const;
+            int ref_dual_vert_node_map(int vert_rid) const;
             
             // Evaluate the basis at a given point
             void basis(
+                CArray <real_t> &basis,
+                CArray <real_t> &point);
+
+            void dual_basis(
                 CArray <real_t> &basis,
                 CArray <real_t> &point);
 
@@ -1037,6 +1058,11 @@ class Hex8: public Element3D {
             void lagrange_basis_1D(
                 CArray <real_t> &interp,    // interpolant
                 const real_t &x_point);     // point of interest in element
+            
+	    void lagrange_dual_basis_1D(
+                CArray <real_t> &interp,    // interpolant
+                const real_t &x_point);     // point of interest in element
+            
             
             void lagrange_derivative_1D(
                 CArray <real_t> &partials,  //derivative
@@ -1082,6 +1108,7 @@ class Hex8: public Element3D {
 
 
             void create_lobatto_nodes(int element_order);
+            void create_lobatto_dual_nodes(int element_order);
 
     };
 
@@ -1293,6 +1320,7 @@ private:
     int num_dim_;
     
     int num_ref_nodes_1D_;
+    int num_ref_dual_nodes_1D_;
     int num_ref_cells_1D_;
     int num_ref_corners_1D_;
     
@@ -1310,6 +1338,7 @@ private:
     
     // nodes
     int num_ref_nodes_in_elem_;
+    int num_ref_dual_nodes_in_elem_;
     int num_ref_nodes_in_cell_;
     
     CArray <int> ref_nodes_in_cell_;
@@ -1317,6 +1346,7 @@ private:
     CArray <int> ref_inside_nodes_in_elem_;
     
     CArray <real_t> ref_node_positions_;
+    CArray <real_t> ref_dual_node_positions_;
     CArray <real_t> ref_node_g_weights_;
     
     CArray <int> cell_nodes_in_elem_list_;
@@ -1362,6 +1392,7 @@ private:
     // Basis evaluation at nodes
     CArray <real_t> ref_nodal_basis_;
     CArray <real_t> ref_nodal_dual_basis_;
+    CArray <real_t> BV_basis_;
     
     // Gradient of basis
     CArray <real_t> ref_nodal_gradient_;
@@ -1386,12 +1417,14 @@ public:
     int num_dual_basis() const;
 
     int num_ref_nodes() const;
+    int num_ref_dual_nodes() const;
     
     int num_ref_cells_in_elem() const;
     int num_ref_corners_in_cell() const;
     
     // local i,j,k indexing
     int node_rid(int i, int j, int k) const;
+    int dual_node_rid(int i, int j, int k) const;
     int cell_rid(int i, int j, int k) const;
     int corner_rid(int i, int j, int k) const;
     
@@ -1404,6 +1437,7 @@ public:
     int num_ref_inside_nodes_in_elem() const;
     
     real_t ref_node_positions(int node_rid, int dim) const;
+    real_t ref_dual_node_positions(int node_rid, int dim) const;
     
     real_t ref_corner_surface_normals(int corner_rid, int surf_rlid, int dim) const;
     
@@ -1419,6 +1453,8 @@ public:
     
     real_t &ref_nodal_dual_basis(int node_rid, int basis_id) const;
 
+    real_t &BV_basis(int node_rid, int basis_id) const;
+    
     int& cell_lid_in_zone(int zone_lid, int cell_lid) const;
     
     real_t ref_cell_positions(int cell_rid, int dim) const;
@@ -1443,6 +1479,7 @@ public:
     
     int vert_node_map(int vert_lid);
     int dual_vert_node_map(int vert_lid);    
+    int ref_dual_vert_node_map(int vert_lid);    
     // Deconstructor
     ~ref_element();
     

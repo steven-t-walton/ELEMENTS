@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/geometry.dir/geometry.cpp.o"
-  "CMakeFiles/geometry.dir/geometry.cpp.o.d"
   "libgeometry.a"
   "libgeometry.pdb"
 )

@@ -226,7 +226,7 @@ int main(int argc, char *argv[]){
                 
                 for (int dim_i=0; dim_i<mesh.num_dim(); dim_i++){
                     
-                    side_area_normals(cell_lid, side_rlid, dim_i) = 0.0;
+                    nide_area_normals(cell_lid, side_rlid, dim_i) = 0.0;
                     
                     for (int dim_j=0; dim_j<mesh.num_dim(); dim_j++){
                         

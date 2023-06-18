@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/test_legendre_element.dir/test_legendre_element.cpp.o"
-  "CMakeFiles/test_legendre_element.dir/test_legendre_element.cpp.o.d"
   "test_legendre_element"
   "test_legendre_element.pdb"
 )

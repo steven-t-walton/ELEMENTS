@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Meshbox.dir/meshbox.cpp.o"
-  "CMakeFiles/Meshbox.dir/meshbox.cpp.o.d"
   "Meshbox"
   "Meshbox.pdb"
 )

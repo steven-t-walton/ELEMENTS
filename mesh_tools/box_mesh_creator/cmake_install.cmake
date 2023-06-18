@@ -1,4 +1,4 @@
-# Install script for directory: /vast/home/stevenw/Fierro/Elements/mesh_tools/box_mesh_creator
+# Install script for directory: /vast/home/stevenw/RD_DG/Elements/mesh_tools/box_mesh_creator
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

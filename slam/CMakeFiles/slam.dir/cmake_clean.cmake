@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/slam.dir/slam.cpp.o"
-  "CMakeFiles/slam.dir/slam.cpp.o.d"
   "libslam.a"
   "libslam.pdb"
 )

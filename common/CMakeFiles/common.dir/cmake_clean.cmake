@@ -1,8 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/common.dir/common.cpp.o"
-  "CMakeFiles/common.dir/common.cpp.o.d"
   "CMakeFiles/common.dir/error.cpp.o"
-  "CMakeFiles/common.dir/error.cpp.o.d"
   "libcommon.a"
   "libcommon.pdb"
 )

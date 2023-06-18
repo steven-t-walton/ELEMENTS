@@ -1,4 +1,4 @@
-# Install script for directory: /vast/home/stevenw/Fierro/Elements/mesh_tools
+# Install script for directory: /vast/home/stevenw/RD_DG/Elements/mesh_tools
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -44,6 +44,6 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/vast/home/stevenw/Fierro/Elements/mesh_tools/box_mesh_creator/cmake_install.cmake")
+  include("/vast/home/stevenw/RD_DG/Elements/mesh_tools/box_mesh_creator/cmake_install.cmake")
 endif()
 

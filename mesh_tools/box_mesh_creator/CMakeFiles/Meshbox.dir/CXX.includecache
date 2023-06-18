@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/vast/home/stevenw/RD_DG/Elements/mesh_tools/box_mesh_creator/meshbox.cpp
+iostream
+-
+stdio.h
+-
+math.h
+-
+sys/stat.h
+-
+matar.h
+/vast/home/stevenw/RD_DG/Elements/mesh_tools/box_mesh_creator/matar.h
+
+Elements/matar/src/macros.h
+stdio.h
+-
+iostream
+-
+limits
+-
+
+Elements/matar/src/matar.h
+stdio.h
+-
+stdlib.h
+-
+string
+-
+assert.h
+-
+memory
+-
+macros.h
+Elements/matar/src/macros.h
+Kokkos_Core.hpp
+-
+Kokkos_DualView.hpp
+-
+

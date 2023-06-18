@@ -1,4 +1,4 @@
-# Install script for directory: /vast/home/stevenw/Fierro/Elements/elements
+# Install script for directory: /vast/home/stevenw/RD_DG/Elements/elements
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
