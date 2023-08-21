@@ -2657,8 +2657,15 @@ void ref_element::init(int p_order, int num_dim, HexN &elem){
               elem.bernstein_basis(node_basis, point);
               elem.bernstein_dual_basis(node_dual_basis, point);
             #else
+	      /*
+	      if (p_order <=2 ){
+                elem.basis(node_basis, point);
+	        elem.dual_basis(node_dual_basis, point);
+	      }
+	      if ( 2 < p_order){*/
               elem.basis(node_basis, point);
 	      elem.bernstein_dual_basis(node_dual_basis, point);
+	      //}
             #endif
 
             for(int vert_rlid = 0; vert_rlid < num_ref_verts_in_elem_; vert_rlid++){
